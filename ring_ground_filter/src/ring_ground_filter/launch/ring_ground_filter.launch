@@ -1,0 +1,28 @@
+<launch>
+
+    <arg name="point_topic" default="/hesai/pandar" />
+    <arg name="remove_floor" default="true" />
+    <arg name="sensor_model" default="32" />        
+    <arg name="sensor_height" default="1.1" />
+    
+    <arg name="max_slope" default="9.0" />
+    <arg name="vertical_thres" default="0.08" />
+            
+    <arg name="no_ground_point_topic" default="/points_no_ground" />
+    <arg name="ground_point_topic" default="/points_ground" />
+    
+    <!-- rosrun lidar_tracker ground_filter -->
+    <node pkg="ring_ground_filter" type="ring_ground_filter" name="ring_ground_filter" output="screen">
+            <param name="point_topic" value="$(arg point_topic)" />
+            <param name="remove_floor" value="$(arg remove_floor)" />
+            <param name="sensor_model" value="$(arg sensor_model)" />
+            <param name="sensor_height" value="$(arg sensor_height)" />
+            <param name="max_slope" value="$(arg max_slope)" />
+            <param name="vertical_thres" value="$(arg vertical_thres)" />
+            <param name="no_ground_point_topic" value="$(arg no_ground_point_topic)" />
+            <param name="ground_point_topic" value="$(arg ground_point_topic)" />                               
+    </node>
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+
+</launch>
