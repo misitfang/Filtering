@@ -1,0 +1,6 @@
+livox_filter:
+  threshold_height: 1.5
+  normal_model: [0.0237744, -0.0141324, 0.999617]
+
+  cloud_input: "/livox/lidar"
+  cloud_output_: "/cloud_no_ground"

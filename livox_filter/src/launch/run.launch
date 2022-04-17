@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find livox_filter)/config/params.yaml"/>
+    <node pkg="livox_filter" type="livox_filter_node" name="narmal_estimation" output="screen"/> 
+    <node pkg="rviz" type="rviz" name="rviz" output="screen"/>
+</launch>
